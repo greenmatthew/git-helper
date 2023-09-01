@@ -4,39 +4,6 @@ from commands import initialize_commands
 
 version="v0.1.0"
 
-def help(args: list):
-    print("""
-MIT License, 2023, Matthew Green
-
-git-helper v0.1.0
------------------
-
-Description:
-------------
-git-helper is a command-line utility designed to simplify the management of Git repositories. 
-It's especially useful for handling repositories with multiple remotes, abstracting away the 
-complexity of running multiple Git commands with a single, easy-to-use git-helper command.
-
-Commands:
----------
-
-help
-    - Description: Displays all commands and their descriptions.
-    
-init [remote url]+
-    - Description: Initializes a git repository with optional remote-URL pairs. 
-                   Each remote should be followed immediately by its corresponding URL.
-
-
-Usage:
-------
-git-helper <command> [options]
-
-For more details on each command, use:
-git-helper <command> --help
-""")
-
-
 def main(argc: int, argv: list):
     # Remove application run command
     argv = argv[1:]
