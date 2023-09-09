@@ -21,3 +21,4 @@ chmod +x "$output/$name"
 
 # Add new compilation to /usr/local/bin so it is globally accessible
 sudo cp "$output/$name" /usr/local/bin
+echo "Moving $name to /usr/local/bin"
