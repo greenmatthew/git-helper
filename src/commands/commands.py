@@ -1,5 +1,5 @@
 from typing import Callable, List
-from command import Command
+from commands.command import Command
 import os
 import shutil
 import git
@@ -21,8 +21,7 @@ Commands:
     
     for command in Command.command_dict.values():
         if command is not None:
-            command.help()
-            print("\n")
+            command.short_help()
     
     print("""Usage:
 ------
@@ -93,18 +92,27 @@ def init_function(args: List[str]):
 
 def initialize_commands():
     Command.help_command = Command(
-    name = "help",
-    aliases = ["--help"],
-    help_text = """help
-    - Description: Displays all commands and their descriptions.""",
-    function = help_function
+        name = "help",
+        aliases = ["--help"],
+        short_description = "Displays all commands and their descriptions.",
+        help_text = [ 
+                        "help",
+                        "    Displays all commands and their descriptions."
+                    ],
+        function = help_function
     )
 
     Command.init_command = Command(
-    name = "init",
-    aliases = [],
-    help_text = """init [remote url]+
-    - Description: Initializes a git repository with optional remote-URL pairs. 
-                   Each remote should be followed immediately by its corresponding URL.""",
-    function = init_function
+        name = "init",
+        aliases = [],
+        short_description = "Initializes a git repository.",
+        help_text = [
+                        "init [--remote <name> <url>]+",
+                        "         initializes with a custom remote or remotes",
+                        "             name is what you want the remote to be called.",
+                        "             url is the URL of the repo.",
+                        "     [-h | --help]",
+                        "         shows how to use the command."
+                    ],
+        function = init_function
     )

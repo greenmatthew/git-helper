@@ -1,6 +1,6 @@
 from sys import argv, exit
-from command import Command
-from commands import initialize_commands
+from commands.command import Command
+from commands.commands import initialize_commands
 
 version="v0.1.0"
 
